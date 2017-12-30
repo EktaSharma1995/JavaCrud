@@ -1,0 +1,11 @@
+CREATE TABLE Employee 
+(
+id NUMBER(10) PRIMARY KEY ,
+firstName VARCHAR2(30) NOT NULL,
+lastName VARCHAR2(30) NOT NULL,
+gender CHAR(1) NOT NULL,
+dateOfBirth DATE NOT NULL,
+sin NUMBER(9) NOT NULL
+);
+
+DROP TABLE Employee;
