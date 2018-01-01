@@ -13,7 +13,6 @@ public class Employee {
 	private int sin;
 	private String address;
 	private String phoneNumber;
-
 	
 	public Employee() {
 	}
@@ -99,8 +98,6 @@ public class Employee {
 				+ ", dateOfBirth=" + dateOfBirth + ", sin=" + sin + ", address=" + address + ", phoneNumber="
 				+ phoneNumber + "]";
 	}
-
-	
 	
 	@Override
 	public int hashCode() {
@@ -162,6 +159,4 @@ public class Employee {
 //			return false;
 		return true;
 	}
-	
-
 }
