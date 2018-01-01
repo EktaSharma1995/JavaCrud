@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.ekta.bean.Employee;
+import com.ekta.constants.Constants;
 import com.ekta.dao.IEmployeeDAO;
 
 public class InMemoryCRUDImpl implements IEmployeeDAO {
@@ -33,54 +34,41 @@ public class InMemoryCRUDImpl implements IEmployeeDAO {
 		return employeeDb;
 	}
 
-//	public boolean checkElement(int id) {
-//		boolean status = false;
-//		int indexOfId = employeeDb.indexOf(id);
-//		if (indexOfId > -1) {
-//			System.out.println("In the list");
-//			status = true;
-//		} else {
-//			System.out.println("Match not found");
-//		}
-//		return status;
-//	}
-
 	public void update(Employee employee, String fieldToBeUpdated) {
 		
-		Employee emp = this.retrieve(employee);
+		Employee employeeFromDB = this.retrieve(employee);   //For checking whether this employee object is present in db or not.
 		
-		int id = emp.getId();
-		int indexOfId = employeeDb.indexOf(id);
-
-
-			Employee employeeFromDB = employeeDb.get(indexOfId);
-
-			if (fieldToBeUpdated.equals("fname")) {
+			if (fieldToBeUpdated.equalsIgnoreCase(Constants.FIRST_NAME)) {
 				employeeFromDB.setFirstName(employee.getFirstName());
 				System.out.print(employeeFromDB);
 
-				} else if (fieldToBeUpdated.equals("lname")) {
+				} else if (fieldToBeUpdated.equalsIgnoreCase(Constants.LAST_NAME)) {
 				employeeFromDB.setLastName(employee.getLastName());
 				System.out.print(employeeFromDB);
 
-				} else if (fieldToBeUpdated.equals("dob")) {
+				} else if (fieldToBeUpdated.equalsIgnoreCase(Constants.DATE_OF_BIRTH)) {
 				employeeFromDB.setDateOfBirth(employee.getDateOfBirth());
 				System.out.print(employeeFromDB);
 
-				} else if (fieldToBeUpdated.equals("gender")) {
+				} else if (fieldToBeUpdated.equalsIgnoreCase(Constants.GENDER)) {
 				employeeFromDB.setGender(employee.getGender());
 				System.out.print(employeeFromDB);
 
-				} else if (fieldToBeUpdated.equals("sin")) {
+				} else if (fieldToBeUpdated.equalsIgnoreCase(Constants.SIN)) {
 				employeeFromDB.setSin(employee.getSin());
 				System.out.print(employeeFromDB);
-				}
-			
-	}
+				
+				} else if (fieldToBeUpdated.equalsIgnoreCase(Constants.PHONE_NUMBER)) {
+				employeeFromDB.setPhoneNumber(employee.getPhoneNumber());
+				System.out.print(employeeFromDB);
+				
+				} else if (fieldToBeUpdated.equalsIgnoreCase(Constants.ADDRESS)) {
+				employeeFromDB.setAddress(employee.getAddress());
+				System.out.print(employeeFromDB);
+				} 
+			}
 
 	public void delete(Employee employee) {
-//		int employeeId = employee.getId();
-//		int indexOfField = employeeDb.indexOf(employeeId);
 		employeeDb.remove(employee);
 		
 	}

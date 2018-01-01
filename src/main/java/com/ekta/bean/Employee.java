@@ -11,18 +11,22 @@ public class Employee {
 	private String gender;
 	private String dateOfBirth;
 	private int sin;
+	private String address;
+	private String phoneNumber;
 
 	
 	public Employee() {
 	}
 	
-	public Employee(int id, String firstName, String lastName, String gender, String dateOfBirth, int sin) {
+	public Employee(int id, String firstName, String lastName, String gender, String dateOfBirth, int sin,String address, String phoneNumber) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
 		this.dateOfBirth = dateOfBirth;
 		this.sin = sin;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public int getId() {
@@ -73,21 +77,42 @@ public class Employee {
 		this.sin = sin;
 	}
 
-	@Override
-	public String toString() {
-		return "Employee [employeeId=" + id + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", gender=" + gender + ", dateOfBirth=" + dateOfBirth + ", sin=" + sin + "]";
+	public String getAddress() {
+		return address;
 	}
 
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender
+				+ ", dateOfBirth=" + dateOfBirth + ", sin=" + sin + ", address=" + address + ", phoneNumber="
+				+ phoneNumber + "]";
+	}
+
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
 		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
-		result = prime * result + id;
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
+		result = prime * result + id;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((phoneNumber == null) ? 0 : phoneNumber.hashCode());
 		result = prime * result + sin;
 		return result;
 	}
@@ -101,13 +126,16 @@ public class Employee {
 		if (getClass() != obj.getClass())
 			return false;
 		Employee other = (Employee) obj;
+//		if (address == null) {
+//			if (other.address != null)
+//				return false;
+//		} else if (!address.equals(other.address))
+//			return false;
 //		if (dateOfBirth == null) {
 //			if (other.dateOfBirth != null)
 //				return false;
 //		} else if (!dateOfBirth.equals(other.dateOfBirth))
 //			return false;
-		if (id != other.id)
-			return false;
 //		if (firstName == null) {
 //			if (other.firstName != null)
 //				return false;
@@ -118,14 +146,22 @@ public class Employee {
 //				return false;
 //		} else if (!gender.equals(other.gender))
 //			return false;
+		if (id != other.id)
+			return false;
 //		if (lastName == null) {
 //			if (other.lastName != null)
 //				return false;
 //		} else if (!lastName.equals(other.lastName))
 //			return false;
+//		if (phoneNumber == null) {
+//			if (other.phoneNumber != null)
+//				return false;
+//		} else if (!phoneNumber.equals(other.phoneNumber))
+//			return false;
 //		if (sin != other.sin)
 //			return false;
 		return true;
 	}
+	
 
 }
